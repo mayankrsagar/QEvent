@@ -1,8 +1,11 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Header";
-import { ThemeProvider } from "@/components/theme-provider";
-import SessionWrapper from "@/components/SessionWrapper";
+import './globals.css';
+
+import { Inter } from 'next/font/google';
+import { Toaster } from 'sonner';
+
+import Header from '@/components/Header';
+import SessionWrapper from '@/components/SessionWrapper';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +21,7 @@ export default function RootLayout({ children }) {
           <ThemeProvider attribute="class" defaultTheme="light">
             <Header />
             {children}
+            <Toaster position="top-center" richColors />
           </ThemeProvider>
         </body>
       </html>

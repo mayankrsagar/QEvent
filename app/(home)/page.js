@@ -1,7 +1,8 @@
-import EventCard from "@/components/EventCard";
-import SwiperComponent from "@/components/SwiperComponent";
-import React from "react";
-import { dummyEvents } from "@/constants/dummyEvents";
+import React from 'react';
+
+import EventCard from '@/components/EventCard';
+import SwiperComponent from '@/components/SwiperComponent';
+import { dummyEvents } from '@/constants/dummyEvents';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
 
       <div className="flex items-center justify-around mt-8 mb-32">
         {dummyEvents.map((eventData) => (
-          <EventCard eventData={eventData} />
+          <EventCard eventData={eventData}  key={eventData["id"]}/>
         ))}
       </div>
     </div>
