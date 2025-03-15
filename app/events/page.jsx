@@ -1,5 +1,6 @@
 "use client";
 import React, {
+  Suspense,
   useEffect,
   useState,
 } from 'react';
@@ -9,7 +10,14 @@ import { useSearchParams } from 'next/navigation';
 
 import EventCard from '@/components/EventCard';
 
-const Events = () => {
+const Events = () => (
+  <Suspense fallback={<div>Loading search parameters...</div>}>
+    <EventsContent />
+  </Suspense>
+);
+
+
+const EventsContent = () => {
   const [eventData, setEventData] = useState([]);
   const [loading, setLoading] = useState(true);
   const searchParams = useSearchParams();
@@ -56,6 +64,7 @@ const Events = () => {
 
 
   return (
+    
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     {loading ? (
       <p>Loading events...</p>
